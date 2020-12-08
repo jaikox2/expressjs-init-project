@@ -1,0 +1,17 @@
+version: "3"
+services:
+ app:
+   restart: always
+   image: app:v0.0.1
+   ports:
+     - 3000:3000
+   env_file:
+     - .env
+   volumes:
+     - /data/app/uploads/:/home/node/app/uploads/
+   networks:
+     - tawai_network
+
+networks:
+ tawai_network:
+   external: true
